@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  logback이 사용할 정보를 설정 -->
+
+<configuration>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">  
+		<!-- Maven Dependencies - logback-core -  ConsoleAppenderBase.class 경로복사 
+			붙여넣은 후 .class는 지우기  -->
+	
+		<encoder>		
+			<charset>UTF-8</charset>
+			<Pattern>
+				%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
+			</Pattern>
+		</encoder>
+		
+	</appender>
+	
+	<!-- 
+		level 등급
+			error 
+			warn
+			info
+			debug
+			trace
+	 -->
+	 
+	 <!--  logger name 부분만 본인 프로젝트의 package base로 변경 -->
+	 <!-- 그대로 복사해서 사용하면 됨 -->
+	<logger name="com.biz.naver" level="debug" additivity="false">
+		<appender-ref ref="console" />		
+	</logger>
+	
+	<root level="warn">
+		<appender-ref ref="console" />
+	</root>
+</configuration>
